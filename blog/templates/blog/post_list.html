@@ -8,18 +8,12 @@
             <h1><a href="">Vimal 's Python Blog</a></h1>
         </div>
 
-        <div>
-            <p>published: 14.06.2014, 12:14</p>
-            <h2><a href="">My first post</a></h2>
-            <p>Testing your REST client in Python
-
-When you start to write a client for a REST API in Python at beginning it's easy to test it using a Python interactive session, but at some point you'll have to write tests, at that moment you'll see that it's not easy to test your code against live data from the RESTful web API. You may encounter various problems, for example, you can have network problems when tests run, the web server may be temporarily down or tests become slow due to network latency.</p>
-        </div>
-
-        <div>
-            <p>published: 14.06.2014, 12:14</p>
-            <h2><a href="">My second post</a></h2>
-            <p>First, download the latest version of Python 2.7 from the official Website. If you want to be sure.you are installing a fully up-to-date version then use the “Windows Installer” link from the home page of the Python.org web site.The Windows version is provided as an MSI package. To install it manually, just double-click the file. The MSI package format allows Windows administrators to automate installation with their standard tools.</p>
-        </div>
+        {% for post in posts %}
+            <div>
+                <p>published: {{ post.published_date }}</p>
+                <h1><a href="">{{ post.title }}</a></h1>
+                <p>{{ post.text|linebreaks }}</p>
+            </div>
+        {% endfor %}
     </body>
 </html>
